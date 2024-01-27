@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import box from './images/box.png'
 import category from './images/category.png'
 import discount from './images/discount-shape.png'
@@ -11,6 +11,7 @@ import sun from './images/sun.png'
 import arrowright from './images/arrow-right.png'
 import setting from './images/setting-2.png'
 import logout from './images/logout.png'
+import { ThemeContext } from '../../ThemeContext'
 const imageList = [
     trend,
     profile,
@@ -23,33 +24,36 @@ const logoutList = [
     setting,
     logout,
 ]
+
 const Sidebar = () => {
+    const {theme, toggleTheme} = useContext(ThemeContext)
+    console.log(theme)
     return (
-        <div className='sidebar justify-between h-dvh sticky top-0 max-md:hidden'>
-            <div className='flex flex-col gap-[10px] items-center'>
-                <button className='p-[10px]'>
+        <div className={`sidebar h-screen justify-between left-0  sticky top-0 border-r max-md:hidden ${theme == "dark" ? "bg-black border-neutral-800" : "bg-[#f7f8fa] border-[#EBECF2]"}`}>
+            <div className='flex flex-col gap-[10px] items-center' data-aos="fade-right" data-aos-duration="400">
+                <button className='p-[10px]' data-aos="fade-right" data-aos-duration='200' data-aos-delay="50">
                     <img src={vector} alt={`Image `} className='w-[40px] h-[40px]' />
                 </button>
-                <button className='p-[10px] relative active:scale-150   rounded-full w-full flex justify-center selected-button '>
+                <button className={`p-[10px] relative active:scale-150   rounded-full w-full flex justify-center selected-button ${theme==='dark'?'invert':''}`}  data-aos="fade-right" data-aos-duration='200' data-aos-delay="100">
                                     <img className='w-[24px] h-[24px]' src={category} alt={`Image`} />
                                 </button>
                 {
                     imageList.map((item, index) => {
                         return (
                             <>
-                                <button className='p-[10px] active:scale-150 hover:scale-125 duration-150 group rounded-full w-full flex justify-center '>
+                                <button data-aos="fade-right" data-aos-duration='200' data-aos-delay={`${(index+2)*50}`} className='p-[10px] active:scale-150 hover:scale-125 duration-150 group rounded-full w-full flex justify-center '>
                                     <img className='w-[24px] h-[24px] group-hover:brightness-75' src={item} alt={`Image ${index}`} />
                                 </button>
                             </>
                         )
                     })
                 }
-                <div className='flex items-center flex-col gap-[16px] p-[10px] bg-[#FFF] rounded-[100px]' >
+                <div className={`flex items-center flex-col gap-[16px] p-[8px] duration-200 hover:bg-neutral-700  rounded-[100px] ${theme==="dark"?'bg-neutral-800 hover:bg-neutral-700':'bg-neutral-200 hover:bg-neutral-400'} cursor-pointer `} data-aos="fade-right" data-aos-duration='200' data-aos-delay={`400`} onClick={toggleTheme} >
                     <button className=''>
-                        <img src={sun} alt={`Image `} />
+                        <img src={sun} alt={`Image `} className={` ${theme==="dark"?"opacity-0":''} duration-150`}/>
                     </button>
-                    <button className='group'>
-                        <img src={moon} className='group-hover:brightness-75' alt={`Image `} />
+                    <button className=''>
+                        <img src={moon} alt={`Image `} className={` duration-150 ${theme==="dark"?"group-hover:brightness-150 brightness-200":'group-hover:brightness-75 invisible'}`} />
                     </button>
                 </div>
             </div>
@@ -57,7 +61,7 @@ const Sidebar = () => {
                 {
                     logoutList.map((item, index) => {
                         return (
-                            <button className='p-[10px] hover:scale-125 duration-150 group active:scale-150 rounded-full '>
+                            <button data-aos="fade-right" data-aos-duration='200' data-aos-delay={`${(index+8)*50}`} className='p-[10px] hover:scale-125 duration-150 group active:scale-150 rounded-full '>
                                 <img className='w-[24px] h-[24px] group-hover:brightness-75' src={item} alt={`Image ${index}`} />
                             </button>
                         )

@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import PercentageBar from './PercentageBar'
-
+import { ThemeContext } from '../../ThemeContext'
 
 const dataList = [
     {
@@ -36,10 +36,11 @@ const dataList = [
 
 
 const TopPlatform = () => {
+    const {theme} = useContext(ThemeContext)
     return (
-        <div className='topplatform col-span-2 max-md:col-span-0 flex flex-col gap-[20px] p-[16px] pl-[20px] pb-[32px] border border-[#EDF2F7]'>
+        <div className={`topplatform col-span-2 box max-md:col-span-0 flex flex-col gap-[20px] p-[16px] pl-[20px] pb-[32px] border border-[#EDF2F7] ${theme ==  "dark" ? "bg-neutral-900 text-white border-neutral-800" : "bg-white text-black border-[#EDF2F7]"}`}>
             <div className='flex justify-between items-center'>
-                <h3>
+                <h3 className='max-sm:text-[10px]'>
                     Top Platform
                 </h3>
                 <button>

@@ -41,14 +41,14 @@ const cardData = [
         "title": "Total Income",
         "chart": greenchart,
         "percentage": '23.5',
-        "amount": "$350.000",
+        "amount": "$ 350,000",
       }
       
 ]
 
 const AnalyticsGrid = () => {
   return (
-    <div className='grid grid-cols-2 xl:hidden max-md:grid-cols-1 gap-[16px] max-xl:px-4 p-6 pt-0 py-0'>
+    <div  className='grid grid-cols-2 xl:hidden max-md:grid-cols-1 max-sm:grid-cols-2 gap-[16px] max-xl:px-4 p-6 pt-0 py-0'>
     {
        
         cardData.map(

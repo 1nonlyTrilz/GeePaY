@@ -1,19 +1,23 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Sidebar from './components/sidebar'
 import HeaderComponent from './components/HeaderComponent'
 import MainDashBoard from './components/MainDashBoard'
+import { ThemeContext} from '../ThemeContext'
 
-const App = () => {
+const App = () => { 
+  const {theme} = useContext(ThemeContext);
   return (
-    <div className=' flex font-[Inter]'>
-      <div >
-        <Sidebar />
+
+      <div className={`flex font-[Inter]  ${theme ==  "dark" ? " text-white bg-black" : "bg-[#fafafa]"}`}>
+        <div  className='z-50' >
+          <Sidebar />
+        </div>
+        <div className='w-full h-full'>
+          <HeaderComponent />
+          <MainDashBoard/>
+        </div>
       </div>
-      <div className='w-full h-full'>
-        <HeaderComponent />
-        <MainDashBoard/>
-      </div>
-    </div>
+    
   )
 }
 

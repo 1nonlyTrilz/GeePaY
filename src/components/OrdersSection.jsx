@@ -41,14 +41,14 @@ const cardData = [
         "title": "Total Income",
         "chart": greenchart,
         "percentage": '23.5',
-        "amount": "$350.000",
+        "amount": "$350,000.00",
       }
       
 ]
 
 const OrdersSection = () => {
   return (
-    <div className='w-full h-full  p-6 pl-2 grid grid-cols-2 gap-[16px]'>
+    <div  className='w-full h-full  p-6 pl-2 grid grid-cols-2 gap-[16px]'>
         {
             cardData.map(
                 (item)=>{
