@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
-import Sidebar from './components/sidebar'
 import HeaderComponent from './components/HeaderComponent'
 import MainDashBoard from './components/MainDashBoard'
 import { ThemeContext} from '../ThemeContext'
+import SideBarComponent from './components/SideBarComponent'
 
 const App = () => { 
   const {theme} = useContext(ThemeContext);
@@ -10,7 +10,7 @@ const App = () => {
 
       <div className={`flex font-[Inter]  ${theme ==  "dark" ? " text-white bg-black" : "bg-[#fafafa]"}`}>
         <div  className='z-50' >
-          <Sidebar />
+          <SideBarComponent />
         </div>
         <div className='w-full h-full'>
           <HeaderComponent />
