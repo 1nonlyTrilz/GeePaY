@@ -20,8 +20,8 @@ const data = [
     const {theme} = useContext(ThemeContext)
     const yTicks = [0, 15000, 30000, 45000,60000];
     const tickStyle = {
-      fill: '#878787',  // Set the color
-      fontSize: 14,   // Set the font size
+      fill: '#878787', 
+      fontSize: 14,   
     };
     return (
       <div className={`p-[20px] select-none  border box  rounded-[14px] flex flex-col gap-3 ${theme ==  "dark" ? "bg-neutral-900 text-black border-neutral-800" : "bg-white border-[#EDF2F7]"} `}>
